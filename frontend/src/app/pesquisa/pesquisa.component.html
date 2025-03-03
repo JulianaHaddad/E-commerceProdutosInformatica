@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<main id="container">
+    <form id="search_form">
+        <div id="form_header">
+            <h1>Pesquisa</h1>
+        </div>
+        <div id="inputs">
+            <div id="input-box">
+                <label for="text">
+                    <div class="input-field">
+                        Buscar:
+                        <input type="text" id="search" name="search" placeholder="O que você procura?" [(ngModel)]="busca">
+                    </div>
+                </label>
+            </div>
+        </div>
+        <button type="submit" (click)="pesquisar()" id="search_button">
+            Pesquisar
+        </button>
+        <h4>{{mensagem}}</h4>
+    </form>
+</main>
+
+<div class="cols">
+    <div class="product" *ngFor="let item of lista">
+        <a asp-controller="Produtoes" (click)="abrirDetalhe(item)"><img src="./assets/imagens/{{item.codigo}}.jpg"
+                title="">
+            <p class="product-name">{{item.nome}}</p>
+            <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9733;<span class="venda">(30.000+)</span></p>
+            <p class="product-price">R$ {{item.valor}}</p>
+        </a>
+        <button *ngIf="item.estoque>0" class="btn" (click)="comprar(item);">
+            Comprar
+        </button>
+    </div>
+</div>

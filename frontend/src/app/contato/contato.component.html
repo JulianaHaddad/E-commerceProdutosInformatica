@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<main id="container">
+    <form id="contato_form">
+        <h4>{{mensagem}}</h4>
+        <div id="form_header">
+            <h1>Contato</h1>
+        </div>
+        <div id="inputs">
+            <div id="input-box">
+                <label for="nome">
+                    Nome
+                    <div class="input-field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="name" name="name" placeholder="Digite seu nome">
+                    </div>
+                </label>
+            </div>
+            <div id="input-box">
+                <label for="email">
+                    E-mail
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="email" name="email" placeholder="Digite seu e-mail">
+                    </div>
+                </label>
+            </div>
+            <div id="input-box">
+                <label for="telefone">
+                    Telefone
+                    <div class="input-field">
+                        <i class="fa-solid fa-key"></i>
+                        <input type="tel" id="telefone" name="telefone" placeholder="Digite sua senha">
+                    </div>
+                </label>
+            </div>
+        </div>
+        <button type="submit" id="contato_button" (click)="this.enviar()">
+            Enviar
+        </button>
+    </form>
+</main>

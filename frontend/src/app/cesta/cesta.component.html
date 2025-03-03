@@ -1,0 +1,71 @@
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+<body>
+
+  <main>
+    <strong><div class="alert alert-warning" *ngIf="mensagem!=''">
+      {{mensagem}}
+    </div></strong>
+    <div class="content">
+      <section>
+        <table *ngIf="lista.length>0">
+          <thead>
+            <tr>
+              <th>Produto</th>
+              <th>Preço</th>
+              <th>Quantidade</th>
+              <th>Total</th>
+              <th>-</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of lista">
+              <td>
+                <div class="product">
+                  <img src="./assets/imagens/{{item.codigoProduto}}.jpg" alt="" />
+                  <div class="info">
+                    <div class="name">{{item.nomeProduto}}</div>
+                  </div>
+                </div>
+              </td>
+              <td>R$ {{item.valor}}</td>
+              <td>
+                <div class="qty">
+                  <button><i class="bx bx-minus"></i></button>
+                  <span>{{item.qtd}}</span>
+                  <button><i class="bx bx-plus"></i></button>
+                </div>
+              </td>
+              <td>R$ {{item.total}}</td>
+              <td>
+                <button class="remove"><i class="bx bx-x"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <aside>
+        <div class="box">
+          <p>Resumo da compra</p>
+          <div class="info">
+            <div><span>Sub-total</span><span>R$ {{totalCesta}}</span></div>
+            <div>
+              <button>
+                Adicionar cupom de desconto
+                <i class="bx bx-right-arrow-alt"></i>
+              </button>
+            </div>
+          </div>
+          <footer>
+            <span>Total</span>
+            <span>R$ {{totalCesta}}</span>
+          </footer>
+        </div>
+        <button class="btn-finish" (click)="finalizarCompra()">Finalizar Compra</button>
+        <br>
+        <button class="btn btn-danger" (click)="limpar();">Limpar Cesta</button>
+      </aside>
+    </div>
+  </main>
+
+</body>

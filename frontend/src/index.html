@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>P1PW</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body [class.dark-mode]="darkMode">
+    <div class="dark">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="checkbox-label">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <span class="ball"></span>
+        </label>
+        <div class="fale-conosco">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+            </svg>
+            <p class="fale">Fale Conosco</p>
+        </div>
+    </div>
+  <header>
+        <strong><a href="#" class="logo">Tech<span class="titulo">Store</span></a></strong>
+        <div class="group">
+            <ul class="navigation">
+                <li><a href="#">Home</a></li>
+                <li><a href="./contato">Contato</a></li>
+                <li><a href="./pesquisa">Pesquisa</a></li>
+                <li><a href="./cesta">Carrinho</a></li>
+                <li class="user-icon">
+                    <i class="fa fa-user"></i>
+                    <div class="dropdown">
+                        <a href="./cadastro">Cadastrar</a>
+                        <a href="./login">Entrar</a>
+                        <a href="./logout">Sair</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="search">
+                <span class="icon">
+                    <ion-icon id="searchIcon" name="search-outline" class="searchBtn"></ion-icon>
+                    <ion-icon name="close-outline" class="closeBtn"></ion-icon>
+                </span>
+            </div>
+            <ion-icon name="menu-outline" class="menu"></ion-icon>
+        </div>
+        <div class="searchBox">
+            <input id="inputBusca" onkeyup="filtrar()" type="text" placeholder="O que você procura?">
+            <ul id="listaProdutos">
+            </ul>
+        </div>
+    </header>
+  <app-root></app-root>
+  <footer>
+    <div class="page-inner-content footer-content">
+        <div class="download-options">
+            <p>Baixe nosso aplicativo</p>
+            <p>Baixe nosso aplicativo para Android e IOS</p>
+            <div>
+                <img src="assets/imagens/playstore.svg" title="Android" />
+                <img src="assets/imagens/applestore.svg" title="IOS" />
+            </div>
+        </div>
+        <div class="logo-footer">
+            <h2 class="titulo-footer">TECH <span>STORE</span></h2>
+            <p>Confiabilidade em cada peça, segurança!</p>
+        </div>
+        <div class="links-footer">
+            <h3>Links Úteis</h3>
+            <ul>
+                <li class="youtube"><i class="fa-brands fa-youtube"></i>Youtube</li>
+                <li class="facebook"><i class="fa-brands fa-facebook"></i>Facebook</li>
+                <li class="Instagram"><i class="fa-brands fa-instagram"></i>Instagram</li>
+            </ul>
+        </div>
+    </div>
+    <hr class="page-inner-content" />
+    <div class="page-inner-content copyright">
+        <p>Copyright 2024 - TECH STORE - Todos Direitos Reservados</p>
+    </div>
+</footer>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        let searchBtn = document.querySelector('.searchBtn');
+        let closeBtn = document.querySelector('.closeBtn');
+        let searchBox = document.querySelector('.searchBox');
+        let navigation = document.querySelector('.navigation')
+        let menu = document.querySelector('.menu');
+        let header = document.querySelector('header');
+
+        searchBtn.onclick = function(){
+            searchBox.classList.add('active');
+            closeBtn.classList.add('active');
+            searchBtn.classList.add('active');
+            menu.classList.add('hide');
+            header.classList.remove('open');
+        }
+
+        closeBtn.onclick = function(){
+            searchBox.classList.remove('active');
+            closeBtn.classList.remove('active');
+            searchBtn.classList.remove('active');
+            menu.classList.remove('hide');
+        }
+
+        menu.onclick = function(){
+            header.classList.toggle('open');
+            searchBox.classList.remove('active');
+            closeBtn.classList.remove('active');
+            searchBtn.classList.remove('active');
+        }
+
+        // Foca no campo de busca
+        const searchIcon = document.getElementById('searchIcon');
+        searchIcon.addEventListener('click', function () {
+            const inputBusca = document.getElementById('inputBusca');
+            inputBusca.focus();
+        });
+
+        const produtos = [
+            {
+                codigo: 1,
+                nome: "Placa de Vídeo Galax NVIDIA GeForce RTX 4060 1-Click OC, 8GB, GDDR6, DLSS, Ray Tracing, 46NSL8MD8ZOC",
+                nominho:"RTX 4060",
+                valor: 1700,
+                descritivo: "A Placa de Vídeo RTX 4060 possui mecanismo de GPU de 3072 Núcleos CUDA, proporcionando potência de processamento eficiente. Com um Boost Relógio de 2.460MHz, a placa pode lidar com uma variedade de tarefas gráficas. A opção de overclocking é simplificada com o Xtreme Tuner Plus Software, permitindo um aumento adicional no clock para 2.475MHz com apenas um clique. Isso proporciona uma experiência de jogo mais intensa e suave. A memória da RTX 4060 possui uma velocidade impressionante de 17 Gbps, juntamente com uma largura de interface de memória de 128 bits GDDR6.",
+                valorPromo: 1500,
+                estoque: 10,
+                destaque: 1
+            },
+            {
+                codigo: 2,
+                nome: "Processador AMD Ryzen 7 5700X, 3.4GHz (4.6GHz Max Turbo), Cache 36MB, AM4, Sem Vídeo - 100-100000926WOF",
+                nominho:"7 5700X",
+                valor: 1300,
+                descritivo: "O Ryzen 7 5700X conta com 8 núcleos incríveis para quem quer apenas jogar. Os processadores AMD Ryzen série 5000 capacitam a próxima geração de jogos exigentes, proporcionando experiências imersivas únicas e dominando qualquer tarefa multithread como 3D e renderização de vídeo e compilação de software.",
+                valorPromo: 1000,
+                estoque: 10,
+                destaque: 1
+            },
+            {
+                codigo:3,
+                nome:"Placa Mãe Gigabyte B550M AORUS Elite, Chipset B550, AMD AM4, mATX, DDR4",
+                nominho:"B550M",
+                valor:900,
+                descritivo:"AMD B550 Ultra Durable Motherboard com Pure Digital VRM Solution, PCIe 4.0 x16 Slot, Dual PCIe 4.0 / 3.0 M.2 Conectores, GIGABYTE 8118 Gaming LAN, Smart Fan 5 com FAN STOP, RGB FUSION 2.0, Q-Flash Plus",
+                valorPromo:750,
+                estoque:10,
+                destaque:1
+            },
+            {
+                codigo:4,
+                nome:"Placa De Vídeo Galax NVIDIA GeForce RTX 4060 Ti 1-Click OC, 8GB, GDDR6, DLSS, Ray Tracing, 46ISL8MD8COC",
+                nominho:"RTX 4060 TI",
+                valor:2700,
+                descritivo:"Equipado com NVIDIA DLSS 3, arquitetura Ada Lovelace ultraeficiente e rastreamento de raio completo, o GeForce RTX 4060 Ti 8GB 1-Click OC com dua ventoinhas apresenta 4.352 núcleos CUDA e a memória GDDR6 de 18 Gbps 8 GB 128 bits de hipervelocidade, bem como a exclusivo clock OC de 1 clique de 2.565MHz através de seu software dedicado Xtreme Tuner Plus. Como é equipado com um único conector de alimentação PCI-E de 8 pinos e um cooler super leve de 2 slots, a mais nova GPU oferece uma experiência de atualização perfeita para os usuários.",
+                valorPromo:2250,
+                estoque:10,
+                destaque:1
+            },
+            {
+                codigo:5,
+                nome:"Memória DDR4 Corsair Vengeance RGB PRO SL, 16GB (2x8GB) 3200MHz, White, CMH16GX4M2E3200C16W",
+                nominho:"DDR4",
+                valor:420,
+                descritivo:"A memória CORSAIR VENGEANCE RGB PRO SL DDR4 destaca seu PC com iluminação RGB dinâmica e endereçável individualmente, enquanto oferece desempenho máximo em um formato compacto.",
+                valorPromo:350,
+                estoque:10,
+                destaque:1
+            },
+            {
+                codigo:6,
+                nome:"Cooler para Processador DeepCool AG400 DIGITAL PLUS, ARGB, 120mm, Intel-AMD, Black, R-AG400-BKADMP-G-1",
+                nominho:"AG400",
+                valor:320,
+                descritivo:"O DeepCool AG400 DIGITAL PLUS é um refrigerador de CPU de torre única de 120 mm que se baseia no nosso legado para um desempenho de refrigeração de alta qualidade, mas despojado para um pacote simplificado e eficiente.",
+                valorPromo:270,
+                estoque:10,
+                destaque:1
+            },
+            {
+                codigo:7,
+                nome:"SSD XPG GAMMMIX S70 BLADE 1TB, M.2 2280 NVMe, Leitura 7400MBs e Gravação 5500MBs, AGAMMIXS70B-1T-CS",
+                nominho:"SSD 1TB",
+                valor:700,
+                descritivo:"Dissipador de calor de alumínio resistente a altas temperaturas que é capaz de reduzir as temperaturas em até 20%. Melhorando consideralvemente a sua performance.",
+                valorPromo:630,
+                estoque:10,
+                destaque:1
+            },
+            {
+                codigo:8,
+                nome:"laca Mãe Asus TUF Gaming B650M-PLUS, Chipset B650, AMD AM5, mATX, DDR5, 90MB1BG0-C1BAY0",
+                nominho:"B650M",
+                valor:1500,
+                descritivo:"A ASUS TUF GAMING B650M-PLUS reúne todos os elementos essenciais dos mais recentes processadores AMD Ryzen série 7000 e os combina com recursos prontos para jogos e durabilidade comprovada. Projetada com componentes de nível militar, uma solução de energia atualizada e um sistema de refrigeração abrangente, esta placa-mãe vai além das expectativas com desempenho sólido e estável para jogos de maratona. ",
+                valorPromo:1200,
+                estoque:10,
+                destaque:1
+            },
+        ];
+
+        function filtrar() {
+            var input,
+                filter,
+                ul,
+                li,
+                a,
+                i,
+                span,
+                txtValue,
+                count = 0;
+
+            input = document.getElementById('inputBusca');
+            ul = document.getElementById('listaProdutos');
+
+            filter = input.value.toUpperCase();
+
+            ul.innerHTML = '';
+
+            produtos.forEach((produto) => {
+                if (produto.nome.toUpperCase().includes(filter)) {
+                    const li = document.createElement("li");
+                    li.innerHTML = `
+                        <a href="#">
+                            <img width="80px" src="./assets/imagens/${produto.codigo}.jpg" title="${produto.nome}">
+                            <span class="item-name">${produto.nome}</span>
+                            <span class="item-nominho">${produto.nominho}</span>
+                            <span class="item-preco"><span style="color: black;">R$</span> ${produto.valor}</span>
+                            <span class="item-promo"><span style="color: black;">R$</span> ${produto.valorPromo}</span>
+                        </a>
+                    `;
+                    ul.appendChild(li);
+                    count++;
+                }
+            });
+
+            ul.style.display = filter === "" ? "none" : "block";
+        }
+
+        // Oculta a searchBox quando clica na tela
+        document.addEventListener('click', function (event) {
+            if (event.target !== inputBusca && event.target !== searchIcon) {
+                searchBox.classList.remove('active');
+                closeBtn.classList.remove('active');
+                searchBtn.classList.remove('active');
+                inputBusca.value = '';
+                listaProdutos.style.display = 'none'
+            }
+        });
+
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        });
+    </script>
+</body>
+</html>

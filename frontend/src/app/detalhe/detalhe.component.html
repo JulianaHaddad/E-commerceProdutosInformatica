@@ -1,0 +1,29 @@
+<section id="product-page">
+    <div class="product-details">
+        <div class="product-img">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./assets/imagens/{{obj.codigo}}.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-text">
+            <h3>{{obj.nome}}</h3>
+            <br>
+            <span class="product-price">De <span class="real-price">R$ {{obj.valor}}</span> por:</span>
+            <br><br>
+            <span class="promo-price" *ngIf="obj.promo>0">R$ {{obj.promo}}</span>
+            <br>
+            <span>à vista com 15% de desconto no boleto ou pix</span>
+            <p>{{obj.descritivo}}</p>
+            <div class="product-button">
+                <a href="#" class="add-bag-btn">Adicionar ao carrinho</a>
+                <a href="#" class="add-wishlist-btn">Adicionar aos favoritos</a>
+            </div>
+            <a href="#" class="help-btn">Precisa de ajuda?</a>
+        </div>
+    </div>
+</section>

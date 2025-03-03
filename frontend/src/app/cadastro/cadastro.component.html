@@ -1,0 +1,133 @@
+<main id="container">
+    <form id="login_form">
+        <h4>{{mensagem}}</h4>
+        <div id="form_header">
+            <h1>Cadastro</h1>
+        </div>
+        <div class="inputs-group" id="inputs">
+            <div class="input-box">
+                <label for="codigo">
+                    Código
+                    <div class="input-field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="codigo" name="codigo" placeholder="" required [(ngModel)]="obj.codigo">
+                    </div>
+                </label>
+            </div>
+            <div class="input-box">
+                <label for="name">
+                    Nome
+                    <div class="input-field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="name" name="name" placeholder="Digite seu nome" required
+                            [(ngModel)]="obj.nome">
+                    </div>
+                </label>
+            </div>
+            <div class="input-box">
+                <label for="email">
+                    E-mail
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required
+                            [(ngModel)]="obj.email">
+                    </div>
+                </label>
+            </div>
+            <div class="input-box">
+                <label for="password">
+                    Senha
+                    <div class="input-field">
+                        <i class="fa-solid fa-key"></i>
+                        <input type="password" id="password" name="password" placeholder="Digite sua senha" required
+                            [(ngModel)]="obj.senha">
+                    </div>
+                </label>
+            </div>
+        </div>
+        <div class="inputs-group" id="inputs">
+            <div class="input-box">
+                <label for="telefone">
+                    Telefone
+                    <div class="input-field">
+                        <i class="fa-solid fa-phone"></i>
+                        <input type="tel" id="telefone" name="tel" placeholder="Digite seu telefone" required
+                            [(ngModel)]="obj.telefone">
+                    </div>
+                </label>
+            </div>
+            <div class="input-box">
+                <label for="rg">
+                    RG
+                    <div class="input-field">
+                        <i class="fa-solid fa-passport"></i>
+                        <input type="text" id="rg" name="rg" placeholder="Digite seu RG" required
+                            [(ngModel)]="obj.documento">
+                    </div>
+                </label>
+            </div>
+            <div class="input-box">
+                <label for="cep">
+                    CEP
+                    <div class="input-field">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <input type="text" id="cep" name="cep" placeholder="Digite seu CEP" required
+                            [(ngModel)]="obj.cep">
+                    </div>
+                </label>
+            </div>
+        </div>
+        <div class="inputs-group" id="inputs">
+            <div class="input-box">
+                <label for="estado">
+                    Estado
+                    <div class="input-field">
+                        <i class="fa-solid fa-map"></i>
+                        <input type="text" id="estado" name="estado" placeholder="Digite seu estado" required
+                            [(ngModel)]="obj.estado">
+                    </div>
+                </label>
+            </div>
+            <div class="input-box">
+                <label for="cidade">
+                    Cidade
+                    <div class="input-field">
+                        <i class="fa-solid fa-city"></i>
+                        <input type="text" id="cidade" name="cidade" placeholder="Digite sua Cidade" required
+                            [(ngModel)]="obj.cidade">
+                    </div>
+                </label>
+            </div>
+            <div class="input-box">
+                <label for="logradouro">
+                    Logradouro
+                    <div class="input-field">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <input type="text" id="logradouro" name="logradouro" placeholder="Digite seu logradouro"
+                            required [(ngModel)]="obj.logradouro">
+                    </div>
+                </label>
+            </div>
+            <div class="input-box">
+                <label for="complemento">
+                    Complemento
+                    <div class="input-field">
+                        <i class="fa-solid fa-location-pin"></i>
+                        <input type="text" id="complemento" name="complemento" placeholder="Complemento"
+                            [(ngModel)]="obj.complemento">
+                    </div>
+                </label>
+            </div>
+        </div>
+        <div class="button">
+            <button type="submit" id="login_button" class="nextbtn" (click)="gravar()">Cadastrar <i
+                    class="fa-solid fa-check"></i></button>
+            <button type="submit" id="login_button" class="nextbtn" (click)="gravar()">Alterar <i
+                    class="fa-solid fa-check"></i></button>
+            <button type="submit" id="login_button" class="nextbtn" (click)="gravar()">Pesquisar <i
+                    class="fa-solid fa-check"></i></button>
+            <button type="submit" id="login_button" class="nextbtn" (click)="gravar()">Remover <i
+                    class="fa-solid fa-check"></i></button>
+        </div>
+    </form>
+</main>

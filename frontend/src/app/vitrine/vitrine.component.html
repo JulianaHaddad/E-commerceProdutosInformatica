@@ -1,0 +1,65 @@
+<div class="header-inner-content-head">
+    <div class="header-bottom-side">
+        <div class="header-bottom-side-left">
+            <h2>Potencialize seu <span class="texto">PC</span><br /> encontre tudo <br /><span
+                    class="texto">aqui!</span></h2>
+            <button>Peças &#8594;</button>
+        </div>
+        <br />
+        <div class="header-bottom-side-right">
+            <img src="assets/imagens/pc.png" />
+        </div>
+    </div>
+</div>
+
+<main class="dark-mode">
+    <h3 class="section-title">Melhores Marcas</h3>
+    <div class="subtitle-underline"></div>
+    <div class="cols">
+        <div class="company">
+            <img src="assets/imagens/msi.png" title="MSI">
+        </div>
+        <div class="company">
+            <img src="assets/imagens/rog.png" title="Asus ROG">
+        </div>
+        <div class="company">
+            <img src="assets/imagens/corsair.png" title="Corsair">
+        </div>
+        <div class="company">
+            <img src="assets/imagens/aorus.png" title="AORUS">
+        </div>
+    </div>
+
+    <br />
+
+    <h3 class="section-title2">Mais Vendidos</h3>
+    <div class="subtitle-underline"></div>
+    <div class="cols">
+        <div class="product" *ngFor="let item of lista">
+            <a asp-controller="Produtoes" (click)="abrirDetalhe(item);"><img src="./assets/imagens/{{item.codigo}}.jpg"
+                    title=""></a>
+            <p class="product-name">{{item.nome}}</p>
+            <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9733;<span class="venda">(30.000+)</span></p>
+            <p class="product-price">R$ {{item.valor}}</p>
+            <button *ngIf="item.estoque>0" class="btn" (click)="comprar(item);">
+                Comprar
+            </button>
+        </div>
+    </div>
+
+    <div class="gray-background">
+        <div class="header-inner-content-footer">
+            <div class="header-bottom-side exclusive-container">
+                <div class="header-bottom-side-left">
+                    <h2>Quer <span class="texto">fazer</span><br /> parte da equipe <br /><span
+                            class="texto">TECH</span> STORE?</h2>
+                    <button>Trabalhe Conosco &#8594;</button>
+                </div>
+                <br />
+                <div class="header-bottom-side-right">
+                    <img src="assets/imagens/logo.jpg" class="logo" />
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

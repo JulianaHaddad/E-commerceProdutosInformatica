@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<main id="container">
+    <form id="login_form">
+        <h4>{{mensagem}}</h4>
+        <div id="form_header">
+            <h1>Login</h1>
+        </div>
+        <div id="inputs">
+            <div id="input-box">
+                <label for="email">
+                    E-mail
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="email" name="email" placeholder="Digite seu e-mail"
+                            [(ngModel)]="obj.email">
+                    </div>
+                </label>
+            </div>
+            <div id="input-box">
+                <label for="password">
+                    Senha
+                    <div class="input-field">
+                        <i class="fa-solid fa-key"></i>
+                        <input type="password" id="password" name="password" placeholder="Digite sua senha"
+                            [(ngModel)]="obj.senha">
+                    </div>
+                </label>
+                <div id="forgot_password">
+                    <a href="./esqueci">
+                        Esqueceu a senha?
+                    </a>
+                    <a href="./cadastro">
+                        Cadastre-se
+                    </a>
+                </div>
+            </div>
+        </div>
+        <button type="submit" id="login_button" (click)="entrar();">
+            Login
+        </button>
+    </form>
+</main>
